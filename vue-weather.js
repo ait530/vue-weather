@@ -1,0 +1,8 @@
+console.log('Script connected.')
+
+var app = new Vue({
+    el: '#app',
+    data: {
+        message: 'Hello, World'
+    }
+})
