@@ -34,3 +34,4 @@ var app = new Vue({
   </div>
     `
 })
+
