@@ -1,3 +1,4 @@
+var apikey = config.APIKEY;
 var app = new Vue({
   el: '#app',
 
@@ -7,8 +8,13 @@ var app = new Vue({
       msg      : 'hello, world!'
     }
   },
+  methods: {
+    requestWeather: function () {
+      alert('connected');
+    }
+  },
   async mounted () {
-    const response = await fetch(`http://api.openweathermap.org/data/2.5/weather?zip=60202,us&APPID=${config.apiKey}`);
+    const response = await fetch("http://api.openweathermap.org/data/2.5/weather?zip=60202,us&APPID=" + apikey);
     const data = await response.json();
     this.weather = data.main.temp;
   },
@@ -20,8 +26,8 @@ var app = new Vue({
     <form id="demo">
       <!-- text -->
       <p>
-        <input type="text" v-model="msg">
-        {{msg}}
+        <input type="text">
+        <button v-on:click="requestWeather">Get Weather</button>
       </p>
 
     </form>
