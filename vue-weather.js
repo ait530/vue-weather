@@ -26,7 +26,7 @@ var app = new Vue({
     <form id="demo">
       <!-- text -->
       <p>
-        <input type="text">
+        <input type="text" placeholder="Enter Zip Code">
         <button v-on:click="requestWeather">Get Weather</button>
       </p>
 
