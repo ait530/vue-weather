@@ -10,7 +10,8 @@ var app = new Vue({
   },
   methods: {
     requestWeather: function () {
-      alert('connected');
+      var userInput = document.getElementById("zipcodeInput").value;
+      alert(userInput);
     }
   },
   async mounted () {
@@ -26,7 +27,7 @@ var app = new Vue({
     <form id="demo">
       <!-- text -->
       <p>
-        <input type="text" placeholder="Enter Zip Code">
+        <input id="zipcodeInput" type="text" placeholder="Enter Zip Code">
         <button v-on:click="requestWeather">Get Weather</button>
       </p>
 
