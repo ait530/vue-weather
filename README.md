@@ -27,6 +27,7 @@ Lifecycle Hooks
 
 API Call
 ```
+Fetch API
 
 ```
 
