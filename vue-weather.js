@@ -30,9 +30,8 @@ var app = new Vue({
       <!-- text -->
       <p>
         <input id="zipcodeInput" type="text" placeholder="Enter Zip Code" pattern="^[0-9]{5}(-[0-9]{4})?$">
-        <button>Get Weather</button>
       </p>
-
+      <button>Get Weather</button>
     </form>
   </div>
     `
