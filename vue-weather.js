@@ -20,11 +20,15 @@ var app = new Vue({
     const response = await fetch("http://api.openweathermap.org/data/2.5/weather?zip=60202,us&APPID=" + apikey);
     const data = await response.json();
     this.weather = data.main.temp;
+    this.farenheight = (((this.weather - 273.15) * 9) / 5) + 32;
+
   },
   template: `
   <div>
     Here's the weather in Evanston today:
     <h1>{{ weather }}</h1>
+
+    <h2>{{ this.farenheight }}</h2>
 
     <form id="demo" v-on:submit.prevent="requestWeather">
       <!-- text -->
@@ -37,7 +41,3 @@ var app = new Vue({
     `
 })
 
-// GOAL: Pass User input to call API then get response outputted...
-// 1. v-on:click="requestWeather  to pass user input -->
-// 2. useriNput --> async mounted ()
-// 3. async mounted() --> zip code into response 
