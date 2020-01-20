@@ -5,7 +5,8 @@ var app = new Vue({
   data () {
     return {
       weather: null,
-      fahrenheit: null
+      fahrenheit: null,
+      city: null
     }
   },
   methods: {
@@ -14,6 +15,7 @@ var app = new Vue({
       const response = await fetch("http://api.openweathermap.org/data/2.5/weather?zip=" + userInput + ",us&APPID=" + apikey);
       const data = await response.json();
       this.weather = data.main.temp;
+      this.city = data.name;
       this.fahrenheit = Math.round(((((this.weather - 273.15) * 9) / 5) + 32));
 
     }
@@ -22,13 +24,14 @@ var app = new Vue({
     const response = await fetch("http://api.openweathermap.org/data/2.5/weather?zip=60202,us&APPID=" + apikey);
     const data = await response.json();
     this.weather = data.main.temp;
+    this.city = data.name;
     this.fahrenheit = Math.round((((this.weather - 273.15) * 9) / 5) + 32);
 
     
   },
   template: `
   <div>
-    Here's the weather in Evanston today:
+    Here's the weather in {{ city }} today:
     <h1>{{ weather }}</h1>
 
     <h2>{{ fahrenheit }} &ordm;F</h2>
