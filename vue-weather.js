@@ -6,7 +6,8 @@ var app = new Vue({
     return {
       weather: null,
       fahrenheit: null,
-      city: null
+      city: null,
+      description: null
     }
   },
   methods: {
@@ -17,6 +18,8 @@ var app = new Vue({
       this.weather = data.main.temp;
       this.city = data.name;
       this.fahrenheit = Math.round(((((this.weather - 273.15) * 9) / 5) + 32));
+      this.description = data.weather[0].description;
+      console.log(data);
 
     }
   },
@@ -26,6 +29,7 @@ var app = new Vue({
     this.weather = data.main.temp;
     this.city = data.name;
     this.fahrenheit = Math.round((((this.weather - 273.15) * 9) / 5) + 32);
+    this.description = data.weather[0].description;
 
     
   },
@@ -35,6 +39,8 @@ var app = new Vue({
     <h1>{{ weather }}</h1>
 
     <h2>{{ fahrenheit }} &ordm;F</h2>
+
+    <h2>{{ description }}</h2>
 
     <form id="demo" v-on:submit.prevent="requestWeather">
       <!-- text -->
