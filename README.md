@@ -9,12 +9,11 @@ A single js file, ```vue-weather.js```, is used to output all of the features of
 API: https://openweathermap.org/api
 
 Vue Instance
-
 ```
 HTML
 <div id="app"></div>
 
-vue-weather.js
+
 var app = new Vue({
 
 })    

@@ -7,7 +7,9 @@ var app = new Vue({
       weather: null,
       city: null,
       description: null,
-      feelsLike: null
+      feelsLike: null,
+      minTemp: null,
+      maxTemp: null
     }
   },
   methods: {
@@ -19,6 +21,8 @@ var app = new Vue({
       this.city = data.name;
       this.description = data.weather[0].description;
       this.feelsLike = data.main.feels_like;
+      this.minTemp = data.main.temp_min;  
+      this.maxTemp = data.main.temp_max;  
 
     }
   },
@@ -29,17 +33,23 @@ var app = new Vue({
     this.city = data.name;
     this.description = data.weather[0].description;
     this.feelsLike = data.main.feels_like;
+    this.minTemp = data.main.temp_min;  
+    this.maxTemp = data.main.temp_max;  
 
-  
   },
   template: `
+
   <div>
+  
     Here's the weather in {{ city }} today:
     <h1>{{ weather }} &ordm;F</h1>
 
     <h2>{{ description }}</h2>
 
     <h2> Feels like: {{ feelsLike }} &ordm;F</h2>
+
+    <h3>Minimum Temperature: {{ minTemp }} &ordm;F</h3>
+    <h3>Minimum Temperature: {{ maxTemp }} &ordm;F</h3>
 
     <form id="demo" v-on:submit.prevent="requestWeather">
       <!-- text -->
