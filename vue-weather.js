@@ -1,4 +1,5 @@
 var apikey = config.APIKEY;
+let d = new Date();
 var app = new Vue({
   el: '#app',
 
@@ -9,7 +10,9 @@ var app = new Vue({
       description: null,
       feelsLike: null,
       minTemp: null,
-      maxTemp: null
+      maxTemp: null,
+      date: d.toJSON().slice(0,10).replace(/-/g,'/')
+
     }
   },
   methods: {
@@ -40,7 +43,9 @@ var app = new Vue({
   template: `
 
   <div>
-  
+
+    <h1>{{ date }}</h1>
+
     Here's the weather in {{ city }} today:
     <h1>{{ weather }} &ordm;F</h1>
 
@@ -49,7 +54,7 @@ var app = new Vue({
     <h2> Feels like: {{ feelsLike }} &ordm;F</h2>
 
     <h3>Minimum Temperature: {{ minTemp }} &ordm;F</h3>
-    <h3>Minimum Temperature: {{ maxTemp }} &ordm;F</h3>
+    <h3>Maximum Temperature: {{ maxTemp }} &ordm;F</h3>
 
     <form id="demo" v-on:submit.prevent="requestWeather">
       <!-- text -->
