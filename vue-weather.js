@@ -11,7 +11,8 @@ var app = new Vue({
       feelsLike: null,
       minTemp: null,
       maxTemp: null,
-      date: d.toJSON().slice(0,10).replace(/-/g,'/')
+      date: d.toJSON().slice(0,10).replace(/-/g,'/'),
+      textAlign:'center'
 
     }
   },
@@ -42,7 +43,7 @@ var app = new Vue({
   },
   template: `
 
-  <div>
+  <div style="text-align:center">
 
     <h1>{{ date }}</h1>
 
