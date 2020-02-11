@@ -18,19 +18,26 @@ var app = new Vue({
   },
   methods: {
     requestWeather: async function (e) {
-      var userInput = document.getElementById("zipcodeInput").value;
-      const response = await fetch("http://api.openweathermap.org/data/2.5/weather?zip=" + userInput + ",us&APPID=" + apikey + "&units=imperial");
-      const data = await response.json();
-      this.weather = data.main.temp;
-      this.city = data.name;
-      this.description = data.weather[0].description;
-      this.feelsLike = data.main.feels_like;
-      this.minTemp = data.main.temp_min;  
-      this.maxTemp = data.main.temp_max;  
-
+      
+      try {
+        var userInput = document.getElementById("zipcodeInput").value;
+        const response = await fetch("http://api.openweathermap.org/data/2.5/weather?zip=" + userInput + ",us&APPID=" + apikey + "&units=imperial");
+        const data = await response.json();
+        this.weather = data.main.temp;
+        this.city = data.name;
+        this.description = data.weather[0].description;
+        this.feelsLike = data.main.feels_like;
+        this.minTemp = data.main.temp_min;  
+        this.maxTemp = data.main.temp_max;  
+      } catch(err) {
+        alert(`Error has occurred!`);
+      }
     }
   },
+
   async mounted () {
+
+
     const response = await fetch("http://api.openweathermap.org/data/2.5/weather?zip=60202,us&APPID=" + apikey + "&units=imperial");
     const data = await response.json();
     this.weather = data.main.temp;
