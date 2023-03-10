@@ -1,17 +1,36 @@
 <!DOCTYPE html>
+<html lang="en">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Vue Weather App</title>
-        <meta name="description" content="">
+        <title>VueWeather App</title>
+        <meta name="description" content="Weather App using the OpenWeather API">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
+        <style>
+            .navbar-brand {
+              color: green;
+            }
+            #panelFooter {
+              width: 100%;
+              text-align: center;
+              padding-top:40px;
+              color:#212529;
+            }
+        </style>
     </head>
     <body>
-    
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+            <nav class="navbar-brand">VueWeather</nav>
+        </nav>
+        <div id="cloudIcon" style =" width: 100%;
+    text-align: center; padding-top: 65px;"><i class="fas fa-cloud-sun-rain fa-10x"></i></div>
         <div id="app"></div>
-
-        <!-- development version, includes helpful console warnings -->
+        <div id="panelFooter">&#169; Copyright <script>var time = new Date(); document.write(time.getFullYear());</script> Aaron Trierweiler</div>
+    
+        <!-- scripts -->
         <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
         <script type='text/javascript' src='./config.js'></script>
         <script type="text/javascript" src="vue-weather.js" async></script>

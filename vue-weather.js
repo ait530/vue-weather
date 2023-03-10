@@ -13,7 +13,6 @@ var app = new Vue({
       maxTemp: null,
       date: d.toJSON().slice(0,10).replace(/-/g,'/'),
       textAlign:'center'
-
     }
   },
   methods: {
@@ -34,10 +33,7 @@ var app = new Vue({
       }
     }
   },
-
   async mounted () {
-
-
     const response = await fetch("http://api.openweathermap.org/data/2.5/weather?zip=60202,us&APPID=" + apikey + "&units=imperial");
     const data = await response.json();
     this.weather = data.main.temp;
@@ -46,15 +42,14 @@ var app = new Vue({
     this.feelsLike = data.main.feels_like;
     this.minTemp = data.main.temp_min;  
     this.maxTemp = data.main.temp_max;  
-
   },
   template: `
 
-  <div style="text-align:center">
+  <div class="pt-2" style="text-align:center">
 
     <h1>{{ date }}</h1>
 
-    Here's the weather in {{ city }} today:
+    <h2>Here's the weather in {{ city }} today:</h2>
     <h1>{{ weather }} &ordm;F</h1>
 
     <h2>{{ description }}</h2>
@@ -69,7 +64,7 @@ var app = new Vue({
       <p>
         <input id="zipcodeInput" type="text" placeholder="Enter Zip Code" pattern="^[0-9]{5}(-[0-9]{4})?$">
       </p>
-      <button>Get Weather</button>
+      <button class="btn btn-success my-2 my-sm-0">Get Weather</button>
     </form>
   </div>
     `
